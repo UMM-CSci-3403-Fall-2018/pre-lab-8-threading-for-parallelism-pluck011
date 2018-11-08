@@ -14,6 +14,7 @@ public class Main {
         for (int i = 0; i < ARRAY_SIZE; ++i) {
             numbers.add(random.nextInt(ARRAY_SIZE));
         }
+
         Instant startTime = Instant.now();
         System.out.println(searchArray(numbers.get(1), numbers));
         System.out.println(searchArray(numbers.get(5), numbers));
@@ -21,11 +22,15 @@ public class Main {
         System.out.println(searchArray(numbers.get(3200), numbers));
         System.out.println(searchArray(numbers.get(7400), numbers));
         System.out.println(searchArray(numbers.get(9876), numbers));
+        Instant endTime = Instant.now();
+        Duration totalTime = Duration.between(startTime, endTime);
+        System.out.println("Total time was " + (totalTime.getNano() / 1000000) + " milliseconds");
+
+        startTime = Instant.now();
         System.out.println(searchArray(2000000, numbers));
         System.out.println(searchArray(-45, numbers));
-        Instant endTime = Instant.now();
-
-        Duration totalTime = Duration.between(startTime, endTime);
+        endTime = Instant.now();
+        totalTime = Duration.between(startTime, endTime);
         System.out.println("Total time was " + (totalTime.getNano() / 1000000) + " milliseconds");
     }
 
